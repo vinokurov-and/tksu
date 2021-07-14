@@ -13,7 +13,6 @@ import {
 
 export default class GrOne extends PureComponent {
   render() {
-    console.log(this.props);
     return (
       <div style={{ widht: "100%", height: "400px" }}>
         <ResponsiveContainer>

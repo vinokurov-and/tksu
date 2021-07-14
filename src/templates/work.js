@@ -1,32 +1,31 @@
 import React from "react";
 import Slider from "react-slick";
 import { HelmetDatoCms } from "gatsby-source-datocms";
-import Img from "gatsby-image";
+// import Img from "gatsby-image";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import GrOne from "../components/Gr";
 import GrVertical from "../components/GrVertical";
+import CircleGr from "../components/Circle";
 
 export default ({ data }) => {
   let dataset = { data: null };
   let Component = <></>;
 
-  console.log(data);
-
   if (data.datoCmsWork && data.datoCmsWork.dataset) {
     const type = data.datoCmsWork.dataset.typeGr;
-    console.log(type);
+
     if (type === "column") {
       Component = GrOne;
     } else if (type === "row") {
       Component = GrVertical;
+    } else if (type === 'circle') {
+      Component = CircleGr;
     }
 
     dataset =
       data.datoCmsWork.dataset?.dataset &&
       JSON.parse(data.datoCmsWork.dataset?.dataset);
-
-    console.log(JSON.stringify(dataset));
   }
 
   return (
