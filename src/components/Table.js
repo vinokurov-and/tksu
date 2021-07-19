@@ -60,7 +60,11 @@ export default ({
     return localStorageData;
   };
 
-  const [data, setData] = useState(getInitialData());
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setData(getInitialData());
+  }, []);
 
   return (
     <MaterialTable
