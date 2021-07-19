@@ -1,21 +1,21 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import { HelmetDatoCms } from 'gatsby-source-datocms'
-import Img from 'gatsby-image'
-import Layout from "../components/layout"
+import React from "react";
+import { graphql } from "gatsby";
+import { HelmetDatoCms } from "gatsby-source-datocms";
+import Img from "gatsby-image";
+import Layout from "../components/layout";
 
 const Form = ({ data: { about } }) => (
   <Layout>
     <article className="sheet">
-      <HelmetDatoCms seo={about.seoMetaTags} />
       <div className="sheet__inner">
         <h1 className="sheet__title">Формы ввода</h1>
 
         {new Array(21).fill(1).map((_, index) => {
-            console.log(index);
-            return <div>
-                <a href="/">Таблица {index}</a>
+          return (
+            <div>
+              <a href={`table${index + 1}`}>Таблица {index + 1}</a>
             </div>
+          );
         })}
 
         {/* <p className="sheet__lead">{about.subtitle}</p> */}
@@ -31,9 +31,9 @@ const Form = ({ data: { about } }) => (
       </div>
     </article>
   </Layout>
-)
+);
 
-export default Form
+export default Form;
 
 export const query = graphql`
   query AboutQuery1 {
@@ -55,4 +55,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
